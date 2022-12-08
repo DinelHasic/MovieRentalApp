@@ -1,0 +1,18 @@
+.deleteContainer
+{
+    background-color: aliceblue;
+    margin: 13em 20em;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border: solid 2px black;
+    border-radius: 1em;
+}
+
+.optionDelete
+{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1em;
+}

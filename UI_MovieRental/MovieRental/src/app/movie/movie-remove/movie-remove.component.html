@@ -1,0 +1,28 @@
+<section
+  class="vh-100 bg-image"
+  style="
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/002/124/414/small_2x/cinema-background-concept-movie-theater-object-isolated-on-red-background-illustration-free-vector.jpg');
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-40">
+      <div class="deleteContainer">
+        <h1>Are you sure you want to remove this movie</h1>
+
+        <div class="optionDelete">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="deleteMovie()"
+          >
+            Remove
+          </button>
+          <button type="button" class="btn btn-primary" (click)="exitDelete()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

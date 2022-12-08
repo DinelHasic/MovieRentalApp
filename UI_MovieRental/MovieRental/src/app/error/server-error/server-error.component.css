@@ -1,0 +1,17 @@
+.notFound-container
+{
+  margin: 5em 35em;
+  width: 40em;
+  text-align: center;
+}
+
+img 
+{
+  width: 27em;
+}
+
+h1,h2
+{
+    color: rgb(126, 126, 126);
+    
+}

@@ -1,0 +1,47 @@
+
+
+  input.ng-invalid.ng-touched,
+  select.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched
+  {
+
+    border: 1px solid red;
+  }
+
+  .validation{
+    padding: 0.3em;
+    color: brown;
+  }
+
+  form {
+    width: 48%;
+  }
+
+  form div {
+    margin-bottom: 1em;
+  }
+
+  h1
+  {
+    color: orange;
+    margin-left: 3.7em;
+    padding: 0.5em;
+  }
+
+textarea
+{
+  resize: none;
+}
+
+.container 
+{
+  margin: 5em 35em;
+}
+
+button {
+   margin-left:14em;
+   padding: 00.5em;
+   width:7em;
+   font-weight: bold;
+
+}

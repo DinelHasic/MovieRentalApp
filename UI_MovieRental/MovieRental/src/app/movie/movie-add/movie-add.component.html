@@ -1,0 +1,97 @@
+<!-- Template Form -->
+<div class="container-sm container">
+  <form (ngSubmit)="addMovie()" #f="ngForm">
+    <h1>Add Movie</h1>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        name="title"
+        placeholder="Title"
+        required
+        ngModel
+        #title="ngModel"
+      />
+      <span class="help-block validation" *ngIf="!title.valid && title.touched"
+        >Enter a value for title!</span
+      >
+    </div>
+    <div class="form-group">
+      <textarea
+        class="form-control"
+        name="description"
+        rows="3"
+        cols="23"
+        maxlength="170"
+        minlength="30"
+        placeholder="Enter description"
+        required
+        ngModel
+        #description="ngModel"
+      ></textarea>
+      <span
+        class="help-block validation"
+        *ngIf="!description.valid && description.touched"
+        >Description has to have minimum length 50!</span
+      >
+    </div>
+    <div class="form-group">
+      <select
+        name="genre"
+        class="form-control"
+        ngModel
+        required
+        #genre="ngModel"
+      >
+        <option value="" disabled selected>Genre</option>
+        <option value="0">Drama</option>
+        <option value="1">Comedy</option>
+        <option value="2">Action</option>
+        <option value="3">Fantasy</option>
+        <option value="4">Horror</option>
+        <option value="5">Romance</option>
+        <option value="6">Western</option>
+        <option value="7">Thriller</option>
+        <option value="8">Animation</option>
+      </select>
+      <span class="help-block validation" *ngIf="!genre.valid && genre.touched"
+        >Please select one of the provided genres!</span
+      >
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="date"
+        name="year"
+        ngModel
+        required
+        #date="ngModel"
+      />
+      <span class="help-block validation" *ngIf="!date.valid && date.touched"
+        >Please select date!</span
+      >
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="url"
+        name="imageUrl"
+        placeholder="image_url"
+        ngModel
+        required
+        pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
+        #imageUrl="ngModel"
+      />
+      <span
+        class="help-block validation"
+        *ngIf="!imageUrl.valid && imageUrl.touched"
+        >Please enter url image!</span
+      >
+    </div>
+    <div>
+      <button type="submit" class="btn btn-warning" [disabled]="!f.valid">
+        Add
+      </button>
+    </div>
+  </form>
+</div>

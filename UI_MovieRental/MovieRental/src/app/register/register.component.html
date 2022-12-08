@@ -1,0 +1,107 @@
+<section
+  class="vh-100 bg-image"
+  style="background-image: url('https://wallpaper.dog/large/20493433.jpg')"
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-40">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="loadingSpiner" *ngIf="isLoading">
+          <app-login-spiner></app-login-spiner>
+        </div>
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6" *ngIf="!isLoading">
+          <div class="card bg-dark" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5" style="color: orange">
+                Create an account
+              </h2>
+              <form [formGroup]="registerFrom" (ngSubmit)="registerSubmit()">
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    id="form3Example1cg"
+                    class="form-control form-control-lg"
+                    placeholder="FirstName"
+                    formControlName="firstName"
+                  />
+                  <span
+                    *ngIf="
+                      !registerFrom.get('firstName')!.valid &&
+                      registerFrom.get('firstName')!.touched
+                    "
+                    >FirstName has to be at least three characters</span
+                  >
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    id="form3Example3cg"
+                    class="form-control form-control-lg"
+                    placeholder="LastName"
+                    formControlName="lastName"
+                  />
+                  <span
+                    *ngIf="
+                      !registerFrom.get('lastName')!.valid &&
+                      registerFrom.get('lastName')!.touched
+                    "
+                    >LastName has to be at least three characters</span
+                  >
+                </div>
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    id="form3Example3cg"
+                    class="form-control form-control-lg"
+                    placeholder="Username"
+                    formControlName="userName"
+                    
+                  />
+                  <span
+                    *ngIf="
+                      !registerFrom.get('userName')!.valid &&
+                      registerFrom.get('userName')!.touched
+                    "
+                    >Username has to bee at least 5 characters and to start with uppercase letter</span
+                  >
+                </div>
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="form3Example4cg"
+                    class="form-control form-control-lg"
+                    placeholder="Password"
+                    formControlName="password"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,32}$"
+                  />
+                  <span
+                    *ngIf="
+                      !registerFrom.get('password')!.valid &&
+                      registerFrom.get('password')!.touched
+                    "
+                    >Password has to be at least three characters to contain a number,uppercase and lowercase letter</span
+                  >
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button
+                    type="submit"
+                    class="btn btn-warning btn-block btn-lg gradient-custom-4 text-body"
+                    [disabled]="!registerFrom.valid"
+                  >
+                    Register
+                  </button>
+                </div>
+                <p class="text-center text-white mt-5 mb-0">
+                  Have already an account?
+                  <a href="#!" class="fw-bold text-body" routerLink="/login"
+                    ><u style="color: red">Login here</u></a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

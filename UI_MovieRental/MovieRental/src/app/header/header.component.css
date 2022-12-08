@@ -1,0 +1,14 @@
+.containerHeader 
+{
+    margin-bottom: 0em;
+    padding-left:  1em;
+}
+
+.form-container
+{
+    margin-left: 64%;
+    display: flex;
+    flex-direction: row;
+    gap: 1pc;
+}
+

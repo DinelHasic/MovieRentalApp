@@ -1,0 +1,6 @@
+<app-movie-list
+  [movies]="movieList"
+  (selectMovie)="getSelectedMovie($event)"
+></app-movie-list>
+<button [routerLink]="'create'" class="PositionButton" *ngIf="isAdmin">Add New</button>
+
