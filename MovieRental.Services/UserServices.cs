@@ -60,6 +60,7 @@ namespace MovieRental.Services
 
 
             JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+
             byte[] secretKeyBytes = Encoding.ASCII.GetBytes(_options.Value.Key!);
 
             SecurityTokenDescriptor securityTokenDescriptor = new SecurityTokenDescriptor
@@ -79,9 +80,9 @@ namespace MovieRental.Services
                     }
                 )
             };
-            
+
             SecurityToken token = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
-            
+
             return jwtSecurityTokenHandler.WriteToken(token);
         }
 
