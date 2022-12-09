@@ -5,7 +5,7 @@ import {
   OnInit,
   EventEmitter,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { Movie } from '../movie.module';
@@ -23,7 +23,7 @@ export class MovieListComponent implements OnInit {
   isAdmin = this.auth.isAdmin();
 
   isRemove:boolean = false;
-  constructor(private auth: AuthService,private router:Router) {}
+  constructor(private auth: AuthService,private router:Router,private activeRoute:ActivatedRoute) {}
 
   ngOnInit(): void {}
 
@@ -33,7 +33,6 @@ export class MovieListComponent implements OnInit {
 
   showDialog(movieId:number)
   {
-    this.router.navigate(['remove'],{queryParams:{id:movieId}})
-    
+    this.router.navigate([`remove`,movieId],{relativeTo:this.activeRoute});
   }
 }

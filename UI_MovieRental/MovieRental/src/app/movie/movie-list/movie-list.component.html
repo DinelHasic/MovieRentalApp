@@ -13,9 +13,12 @@
           <h3>{{ movie.title }}</h3>
           <p>{{ movie.description }} Genre: {{ movie.genre }}</p>
           <p>{{ movie.year | date : "MMM d, y" }}</p>
-          <button type="button" class="btn btn-danger" *ngIf="isAdmin" (click)="showDialog(movie.id)">Remove</button> 
         </div>
       </div>
     </a>
+    <div class="container-position">
+    <button type="button" class="btn btn-danger position" *ngIf="isAdmin" (click)="showDialog(movie.id)">Remove</button> 
+    <button type="button" class="btn btn-primary position" *ngIf="isAdmin" (click)="showDialog(movie.id)">Edit</button> 
+    </div>
   </div>
 </div>
