@@ -41,8 +41,8 @@ var appConfig = builder.Configuration.GetSection("Auth");
 
 builder.Services.Configure<Auth>(appConfig);
 
-var auth = appConfig.Get<Auth>()
-    ;
+var auth = appConfig.Get<Auth>();
+
 var secret = Encoding.ASCII.GetBytes(auth.Key!);
 
 builder.Services.AddAuthentication(x =>
