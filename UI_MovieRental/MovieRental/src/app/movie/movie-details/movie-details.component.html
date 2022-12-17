@@ -11,6 +11,10 @@
       <div class="movie-title">{{ movie.title }}</div>
       <div class="movie-detail">
         <div class="set">
+          <label>Rating:</label>
+          <span class="ratingColor">{{movie.rating  | number : '1.1-1' }}</span>
+        </div>
+        <div class="set">
           <label>Release Date</label>
           <span>{{ movie.year | date }}</span>
         </div>

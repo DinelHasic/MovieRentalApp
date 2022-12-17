@@ -34,6 +34,7 @@ namespace MovieRental.Storage.Database
             modelBuilder.Entity<User>().HasData(UserSeed.USERS);
             modelBuilder.Entity<Director>().HasData(DirectorSeed.DIRECTORS);
             modelBuilder.Entity<Genre>().HasData(GenreSeed.GENRES);
+            modelBuilder.Entity<Rating>().HasData(RatingSeed.RATINGS);
 
             modelBuilder.Entity<Rating>()
             .HasOne(x => x.Movie)

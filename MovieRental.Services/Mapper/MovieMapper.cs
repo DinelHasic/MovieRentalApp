@@ -40,8 +40,9 @@ namespace MovieRental.Services.Mapper
             {
                 Title = movie.Title,
                 Description = movie.Description,
-                Genres = movie.Genres.Select(x => x.ToGenreMovie()),
+                Genres = movie.Genres!.Select(x => x.ToGenreMovie()),
                 Year = movie.Year,
+                Rating = movie.Rating.RatingCalculate(),
                 ImageUrl = movie.ImageUrl,
                 Directors =  movie.Directors!.Select(x => x.ToDirectorDto())
             };

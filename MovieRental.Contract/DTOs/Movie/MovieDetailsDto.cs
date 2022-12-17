@@ -22,6 +22,8 @@ namespace MovieRental.Contract.DTOs.Movie
 
         public string? ImageUrl { get; set; }
 
+        public double Rating { get; set; }
+
         public IEnumerable<DirectorDto>? Directors { get; set; }
     }
 }

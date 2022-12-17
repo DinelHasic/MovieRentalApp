@@ -12,5 +12,7 @@ export class MovieDetails {
 
   public imageUrl!: string;
 
+  public rating!:number;
+
   public directors!:Array<Director>
 }

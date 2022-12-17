@@ -33,7 +33,7 @@ namespace MovieRental.Storage.Repositorys
 
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            return await GetItemById(id).Include(x => x.Genres).Include(x => x.Directors).FirstOrDefaultAsync() ?? throw new NullReferenceException();
+            return await GetItemById(id).Include(x => x.Genres).Include(x => x.Directors).Include(x => x.Rating).FirstOrDefaultAsync() ?? throw new NullReferenceException();
         }
     }
 }
