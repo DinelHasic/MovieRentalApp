@@ -11,20 +11,33 @@ namespace MovieRental.Services
         private readonly IMovieRepository _movieRepository;
 
         private readonly IUnitOfWork _unitOfWork;
-        public MovieServices(IMovieRepository movieRepository,IUnitOfWork unitOfWork)
+
+        private readonly IDirectorRepository _directorRepository;
+
+        private readonly IGenreRepository _genreRepository;
+        public MovieServices(IMovieRepository movieRepository,IUnitOfWork unitOfWork,IDirectorRepository directorRepository,IGenreRepository genreRepository)
         {
             _movieRepository = movieRepository;
             _unitOfWork = unitOfWork;
+            _directorRepository = directorRepository;
+            _genreRepository = genreRepository;
         }
 
         public async Task AddNewMovieAsync(MovieCreateDto newMovie)
         {
+
+            ICollection<Director> directors = _directorRepository.GetDirectorByIds(newMovie.Directors!).ToArray();
+
+            ICollection<Genre> genres = _genreRepository.GetGenresByIds(newMovie.Genres!).ToArray();
+
             Movie movie = new()
             {
                 Title = newMovie.Title,
                 Description = newMovie.Description,
+                Genres = genres,
                 ImageUrl = newMovie.ImageUrl,
                 Year = newMovie.Year,
+                Directors = directors
             };
 
             _movieRepository.AddMovie(movie);

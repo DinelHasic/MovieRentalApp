@@ -33,6 +33,8 @@ builder.Services.AddScoped<IUserServices, UserServices>()
                 .AddScoped<IMovieServices, MovieServices>()
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IMovieRepository, MovieRepository>() 
+                .AddScoped<IDirectorRepository, DirectorRepository>()
+                .AddScoped<IGenreRepository, GenreRepository>()
                 .AddScoped<IUnitOfWork, UnitOfWork>()
                 .AddScoped<IMovieRentalDbContext, MovieRentalDbContext>()
                 .AddSwaggerGen().RegisterDatabase(connectionString);
