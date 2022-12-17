@@ -10,6 +10,7 @@ using MovieRental.Storage.Database;
 using MovieRental.Storage.Repositorys;
 using MovieRental.Storage.UnitOfWork;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 string connectionString = builder.Configuration.GetConnectionString("Database");
+
 string[] allowedOrigins = builder.Configuration.GetSection("AllowOrigin").Get<string[]>();
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 
 builder.Services.AddScoped<IUserServices, UserServices>()
                 .AddScoped<IMovieServices, MovieServices>()

@@ -1,13 +1,16 @@
-import { Genre } from "../genre.enum";
-export class MovieDetails
-{
-    public title!: string;
+import { Genre } from '../genre.module';
+import { Director } from './director.model';
 
-    public description!: string;
-  
-    public genre!: Genre;
-  
-    public year!: Date;
-  
-    public imageUrl!: string;
+export class MovieDetails {
+  public title!: string;
+
+  public description!: string;
+
+  public genres!: Array<Genre>;
+
+  public year!: Date;
+
+  public imageUrl!: string;
+
+  public directors!:Array<Director>
 }

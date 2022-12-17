@@ -8,7 +8,7 @@ namespace MovieRental.Domain.Enteties
 
         public string? Description { get; set; }
 
-        public Genre Genre { get; set; }
+        public ICollection<Genre> Genres { get; set; }
 
         public DateTime Year { get; set; }
 
@@ -18,21 +18,18 @@ namespace MovieRental.Domain.Enteties
 
         public ICollection<Director>? Directors { get; set; }
 
-        public int UserId { get; set; }
-
-        public int DirecorId { get; set; }
+        public ICollection<Rating> Rating { get; set; }
 
         public Movie()
         {
 
         }
 
-        public Movie(int id,string? title, string? description, DateTime year,Genre genre,string imageUrl)
+        public Movie(int id,string? title, string? description, DateTime year,string imageUrl)
         {
             Id = id;
             Title = title;
             Description = description;
-            Genre = genre;
             Year = year;
             ImageUrl = imageUrl;
         }

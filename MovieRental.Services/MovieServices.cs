@@ -23,7 +23,6 @@ namespace MovieRental.Services
             {
                 Title = newMovie.Title,
                 Description = newMovie.Description,
-                Genre = newMovie.Genre,
                 ImageUrl = newMovie.ImageUrl,
                 Year = newMovie.Year,
             };

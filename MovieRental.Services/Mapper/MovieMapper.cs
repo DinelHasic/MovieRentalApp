@@ -1,4 +1,5 @@
-﻿using MovieRental.Contract.DTOs.Movie;
+﻿using MovieRental.Contract.DTOs.Genre;
+using MovieRental.Contract.DTOs.Movie;
 using MovieRental.Domain.Enteties;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,19 @@ namespace MovieRental.Services.Mapper
             {
                 Id = movie.Id,
                 Title = movie.Title,
+                Genres = movie.Genres.Select(x => x.ToGenreMovie()),
                 Description = movie.Description,
-                Genre = movie.Genre,
                 Year = movie.Year,
                 ImageUrl = movie.ImageUrl,
+            };
+        }
+
+        public static GenreMoviesDto ToGenreMovie(this Genre genres)
+        {
+            return new GenreMoviesDto()
+            {
+                GenreId = genres.Id,
+                GenreTitle = genres.Title,
             };
         }
 
@@ -30,9 +40,10 @@ namespace MovieRental.Services.Mapper
             {
                 Title = movie.Title,
                 Description = movie.Description,
-                Genre = movie.Genre,
+                Genres = movie.Genres.Select(x => x.ToGenreMovie()),
                 Year = movie.Year,
                 ImageUrl = movie.ImageUrl,
+                Directors =  movie.Directors!.Select(x => x.ToDirectorDto())
             };
         }
     }

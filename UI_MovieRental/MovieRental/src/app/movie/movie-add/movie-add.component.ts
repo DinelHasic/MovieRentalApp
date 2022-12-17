@@ -23,8 +23,8 @@ export class MovieAddComponent implements OnInit {
     const movie = new Movie(
       data.title,
       data.description,
-      data.year,
-      parseInt(data.genre),
+      data.year,      
+      data.genre,
       data.imageUrl
     );
 

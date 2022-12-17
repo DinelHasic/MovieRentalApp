@@ -19,20 +19,17 @@
           <span>1 Hr 47 Min</span>
         </div>
         <div class="set">
-          <label>Genre</label>
-          <span>{{movie.genre | genre}}</span>
+          <label>Genre:</label>
+          <span *ngFor="let genre of movie.genres">{{genre.genreTitle + " "}}</span>
         </div>
       </div>
       <div class="movie-description"> {{movie.description}}</div>
       <div class="movie-cast">
         <div class="header">Director</div>
         <div class="list">
-          <div class="cast">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/67/Steven_Spielberg_by_Gage_Skidmore.jpg"
-              alt=""
-            />
-            <label>Steven Spielberg</label>
+          <div class="cast" *ngFor="let director of movie.directors">
+            <img src={{director.image_Url}}/>
+            <label>{{director.firstName}} {{director.lastName}}</label>
           </div>
         </div>
       </div>

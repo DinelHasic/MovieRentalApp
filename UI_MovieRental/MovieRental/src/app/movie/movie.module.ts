@@ -1,4 +1,4 @@
-import { Genre } from './genre.enum';
+import { Genre } from './genre.module';
 
 export class Movie {
   public id!: number;
@@ -7,7 +7,7 @@ export class Movie {
 
   public description!: string;
 
-  public genre!: Genre;
+  public genres!: Array<Genre>;
 
   public year!: Date;
 
@@ -17,12 +17,12 @@ export class Movie {
     title: string,
     description: string,
     year: Date,
-    genre: Genre,
+    genres: Array<Genre>,
     imageUrl: string
   ) {
     this.title = title;
     this.description = description;
-    this.genre = genre;
+    this.genres = genres;
     this.year = year;
     this.imageUrl = imageUrl;
   }

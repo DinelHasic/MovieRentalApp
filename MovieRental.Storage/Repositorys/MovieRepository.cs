@@ -18,7 +18,7 @@ namespace MovieRental.Storage.Repositorys
 
         public async Task<IReadOnlyCollection<Movie>> GetAllMoviesAsync()
         {
-           return await GetAll().ToArrayAsync();
+           return await GetAll().Include(x => x.Genres).ToArrayAsync();
         }
 
         public void AddMovie(Movie movie)
@@ -33,7 +33,7 @@ namespace MovieRental.Storage.Repositorys
 
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            return await GetItemById(id).FirstOrDefaultAsync() ?? throw new NullReferenceException();
+            return await GetItemById(id).Include(x => x.Genres).Include(x => x.Directors).FirstOrDefaultAsync() ?? throw new NullReferenceException();
         }
     }
 }

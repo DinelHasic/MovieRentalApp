@@ -11,7 +11,7 @@
         </div>
         <div class="flip-card-back" (click)="getMovieDetails(movie)">
           <h3>{{ movie.title }}</h3>
-          <p>{{ movie.description }} Genre: {{ movie.genre }}</p>
+          <p>{{ movie.description }} Genre: {{ movie.genres[0].genreTitle }}</p>
           <p>{{ movie.year | date : "MMM d, y" }}</p>
         </div>
       </div>

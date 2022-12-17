@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieServices } from 'src/app/services/movie.services';
 import { MovieDetails } from '../movie-view-models/movieDetails.model';
-import { Genre } from '../genre.enum';
+import { Genre } from '../genre.module';
 
 @Component({
   selector: 'app-movie-details',
@@ -10,7 +10,6 @@ import { Genre } from '../genre.enum';
   styleUrls: ['./movie-details.component.css'],
 })
 export class MovieDetailsComponent implements OnInit {
-
   constructor(
     private movieServices: MovieServices,
     private route: ActivatedRoute

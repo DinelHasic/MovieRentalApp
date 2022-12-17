@@ -27,6 +27,7 @@ export class MovieComponent implements OnInit {
     this.movieServices.getAllMovies().subscribe(
       (data) => {
         this.movieList = data;
+        console.log(this.movieList[0])
       },
       () => {
         this.router.navigate(['server-error']);

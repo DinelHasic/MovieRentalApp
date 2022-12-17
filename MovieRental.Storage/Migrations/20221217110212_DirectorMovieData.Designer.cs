@@ -12,8 +12,8 @@ using MovieRental.Storage.Database;
 namespace MovieRental.Storage.Migrations
 {
     [DbContext(typeof(MovieRentalDbContext))]
-    [Migration("20221024132728_newSeedData")]
-    partial class NewSeedData
+    [Migration("20221217110212_DirectorMovieData")]
+    partial class DirectorMovieData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,6 +58,143 @@ namespace MovieRental.Storage.Migrations
                         {
                             DirectorsId = 4,
                             ListMoviesId = 4
+                        },
+                        new
+                        {
+                            DirectorsId = 5,
+                            ListMoviesId = 5
+                        },
+                        new
+                        {
+                            DirectorsId = 6,
+                            ListMoviesId = 6
+                        },
+                        new
+                        {
+                            DirectorsId = 7,
+                            ListMoviesId = 6
+                        },
+                        new
+                        {
+                            DirectorsId = 8,
+                            ListMoviesId = 7
+                        },
+                        new
+                        {
+                            DirectorsId = 9,
+                            ListMoviesId = 8
+                        },
+                        new
+                        {
+                            DirectorsId = 10,
+                            ListMoviesId = 9
+                        },
+                        new
+                        {
+                            DirectorsId = 2,
+                            ListMoviesId = 10
+                        });
+                });
+
+            modelBuilder.Entity("GenreMovie", b =>
+                {
+                    b.Property<int>("GenresId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MoviesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GenresId", "MoviesId");
+
+                    b.HasIndex("MoviesId");
+
+                    b.ToTable("GenreMovie");
+
+                    b.HasData(
+                        new
+                        {
+                            GenresId = 1,
+                            MoviesId = 1
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 1
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            GenresId = 4,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            GenresId = 1,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            GenresId = 4,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            GenresId = 9,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            GenresId = 9,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            GenresId = 9,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            GenresId = 4,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            GenresId = 3,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            GenresId = 1,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            GenresId = 4,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 10
                         });
                 });
 
@@ -72,11 +209,11 @@ namespace MovieRental.Storage.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Image_Url")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ListMoviesId")
-                        .HasColumnType("int");
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -87,29 +224,135 @@ namespace MovieRental.Storage.Migrations
                         {
                             Id = 1,
                             FirstName = "Steven",
-                            LastName = "Spielberg",
-                            ListMoviesId = 0
+                            Image_Url = "https://upload.wikimedia.org/wikipedia/commons/6/67/Steven_Spielberg_by_Gage_Skidmore.jpg",
+                            LastName = "Spielberg"
                         },
                         new
                         {
                             Id = 2,
                             FirstName = "Chris",
-                            LastName = "Columbus",
-                            ListMoviesId = 0
+                            Image_Url = "https://flxt.tmsimg.com/assets/86548_v9_bb.jpg",
+                            LastName = "Columbus"
                         },
                         new
                         {
                             Id = 3,
                             FirstName = "Joe",
-                            LastName = "Johnston",
-                            ListMoviesId = 0
+                            Image_Url = "https://m.media-amazon.com/images/M/MV5BNzcxNDQwNzgxNV5BMl5BanBnXkFtZTYwNTQ1MTA0._V1_.jpg",
+                            LastName = "Johnston"
                         },
                         new
                         {
                             Id = 4,
                             FirstName = "Andrew",
-                            LastName = "Adamson",
-                            ListMoviesId = 0
+                            Image_Url = "https://flxt.tmsimg.com/assets/238057_v9_ba.jpg",
+                            LastName = "Adamson"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            FirstName = "Wolfgang",
+                            Image_Url = "https://images.mubicdn.net/images/cast_member/28582/cache-6755-1656674147/image-w856.jpg?size=800x",
+                            LastName = "Reitherman"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            FirstName = "Rob ",
+                            Image_Url = "https://flxt.tmsimg.com/assets/161246_v9_bb.jpg",
+                            LastName = "Minkoff"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            FirstName = "Roger",
+                            Image_Url = "https://flxt.tmsimg.com/assets/161245_v9_ba.jpg",
+                            LastName = "Allers"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            FirstName = "Raja",
+                            Image_Url = "https://resizing.flixster.com/NF1S1bg13STVPI39JymDzl8it8Q=/218x280/v2/https://flxt.tmsimg.com/assets/78732_v9_bb.jpg",
+                            LastName = "Gosnell"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            FirstName = "Peter ",
+                            Image_Url = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRQHnA-V4DqU8xDTpwsADvNWat9IbAgrkKifsp-NUyoHSy5AGw6",
+                            LastName = "Jackson"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            FirstName = "Peter ",
+                            Image_Url = "https://www.etonline.com/sites/default/files/styles/max_1280x720/public/images/2019-01/peter_farrelly_gettyimages-1079456294_1280.jpg?h=c673cd1c&itok=zBxwVhm8",
+                            LastName = "Farrelly"
+                        });
+                });
+
+            modelBuilder.Entity("MovieRental.Domain.Enteties.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "Drama"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Comedy"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Title = "Action"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Title = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Title = "Horror"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Title = "Romance"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Title = "Western"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Title = "Thriller"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Title = "Animation"
                         });
                 });
 
@@ -124,21 +367,11 @@ namespace MovieRental.Storage.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DirecorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Genre")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Year")
                         .HasColumnType("datetime2");
@@ -152,112 +385,103 @@ namespace MovieRental.Storage.Migrations
                         {
                             Id = 1,
                             Description = "Alien in planet earth with a young boy",
-                            DirecorId = 0,
-                            Genre = 3,
                             ImageUrl = "https://m.media-amazon.com/images/I/814-9+LgNTL._AC_SY445_.jpg",
                             Title = "E.T",
-                            UserId = 0,
                             Year = new DateTime(1982, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             Description = "A boy home alone",
-                            DirecorId = 0,
-                            Genre = 1,
                             ImageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zYPsleQJo1n1rBPlecJBRb3iwSO.jpg",
                             Title = "Home Alone",
-                            UserId = 0,
                             Year = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             Description = "When two kids find and play a magical board game, they release a man trapped in it for decades.",
-                            DirecorId = 0,
-                            Genre = 3,
                             ImageUrl = "https://resizing.flixster.com/ubZExJkNr_7S3Nr1I8-wk8lg4DU=/206x305/v2/https://flxt.tmsimg.com/assets/p15446613_p_v8_ac.jpg",
                             Title = "Jumanji",
-                            UserId = 0,
                             Year = new DateTime(1995, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
                             Description = "Four kids travel through a wardrobe to the land of Narnia and learn of their destiny to free it with the guidance of a mystical lion.",
-                            DirecorId = 0,
-                            Genre = 2,
                             ImageUrl = "https://m.media-amazon.com/images/M/MV5BMTc0NTUwMTU5OV5BMl5BanBnXkFtZTcwNjAwNzQzMw@@._V1_.jpg",
                             Title = "Narnian",
-                            UserId = 0,
                             Year = new DateTime(2005, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
                             Description = "Mowgli is a boy brought up in the jungle by a pack of wolves. When Shere Khan, a tiger, threatens to kill him, a panther and a bear help him escape his clutches.",
-                            DirecorId = 0,
-                            Genre = 8,
                             ImageUrl = "https://m.media-amazon.com/images/I/51qv0ish5JL._SY445_.jpg",
                             Title = "Jungle Book",
-                            UserId = 0,
                             Year = new DateTime(1987, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
                             Description = "As a cub, Simba is forced to leave the Pride Lands after his father Mufasa is murdered by his wicked uncle, Scar. Years later, he returns as a young lion to reclaim his throne.",
-                            DirecorId = 0,
-                            Genre = 8,
-                            ImageUrl = "https://play-lh.googleusercontent.com/sxMhq5US2nRdYrfER_Z_K5RChyifJmKrWIK650KeJW7eqggKkGSNjGHnIsyrIOg-YDfYXg=w240-h480-rw",
+                            ImageUrl = "https://lumiere-a.akamaihd.net/v1/images/p_thelionking2019_19732_c1561d41.jpeg?region=0%2C0%2C540%2C810",
                             Title = "Lion King",
-                            UserId = 0,
-                            Year = new DateTime(1994, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Year = new DateTime(2019, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
                             Description = "Scooby-Doo! Mystery Mayhem is a video game based on the Hanna-Barbera/Warner Bros. cartoon Scooby-Doo. ",
-                            DirecorId = 0,
-                            Genre = 1,
                             ImageUrl = "https://upload.wikimedia.org/wikipedia/en/a/ae/Scooby-Doo_poster.jpg",
                             Title = "Scooby Doo",
-                            UserId = 0,
                             Year = new DateTime(2005, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            Description = "The Lord of the Rings: The Return of the King",
-                            DirecorId = 0,
-                            Genre = 2,
+                            Description = "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
                             ImageUrl = "https://images.squarespace-cdn.com/content/v1/5935bdc315cf7d45e895fdfe/1557857896793-H0GROSO5OUE9NDE2IZ2I/LOTF---TTT-poster-credit-to-Metropolitan-Festival-Orchestra.jpg?format=1500w",
-                            Title = "Scooby Doo",
-                            UserId = 0,
+                            Title = "The Lord of the Rings: The Return of the King",
                             Year = new DateTime(2003, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
                             Description = "A working-class Italian-American bouncer becomes the driver for an African-American classical pianist on a tour of venues through the 1960s American South.",
-                            DirecorId = 0,
-                            Genre = 0,
                             ImageUrl = "https://movieposters2.com/images/1614370-b.jpg",
                             Title = "Green Book",
-                            UserId = 0,
                             Year = new DateTime(2018, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
                             Description = "When aliens misinterpret video feeds of classic arcade games as a declaration of war, they attack the Earth in the form of the video games.",
-                            DirecorId = 0,
-                            Genre = 1,
                             ImageUrl = "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/856aa43a655cd0c2b44f0e99bf8daed3b817c72b289ec0557469ca3f420af75a._RI_V_TTW_.png",
                             Title = "Pixels",
-                            UserId = 0,
                             Year = new DateTime(2015, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
+                });
+
+            modelBuilder.Entity("MovieRental.Domain.Enteties.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RatingNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("MovieRental.Domain.Enteties.User", b =>
@@ -271,7 +495,7 @@ namespace MovieRental.Storage.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FovriteGenre")
+                    b.Property<int?>("FovriteGenreId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -283,10 +507,15 @@ namespace MovieRental.Storage.Migrations
                     b.Property<int>("RentedMoviesId")
                         .HasColumnType("int");
 
+                    b.Property<int>("RoleType")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FovriteGenreId");
 
                     b.ToTable("Users");
 
@@ -298,6 +527,7 @@ namespace MovieRental.Storage.Migrations
                             LastName = "Dinko123",
                             Password = "Lord",
                             RentedMoviesId = 0,
+                            RoleType = 1,
                             UserName = "Dinko"
                         },
                         new
@@ -307,6 +537,7 @@ namespace MovieRental.Storage.Migrations
                             LastName = "Vanja123",
                             Password = "Vanja1",
                             RentedMoviesId = 0,
+                            RoleType = 0,
                             UserName = "Vanja"
                         },
                         new
@@ -316,6 +547,7 @@ namespace MovieRental.Storage.Migrations
                             LastName = "Cvetan123",
                             Password = "Cvetan",
                             RentedMoviesId = 0,
+                            RoleType = 0,
                             UserName = "Cvetan"
                         },
                         new
@@ -325,6 +557,7 @@ namespace MovieRental.Storage.Migrations
                             LastName = "Miki123",
                             Password = "Miki",
                             RentedMoviesId = 0,
+                            RoleType = 0,
                             UserName = "Miki"
                         });
                 });
@@ -391,6 +624,41 @@ namespace MovieRental.Storage.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("GenreMovie", b =>
+                {
+                    b.HasOne("MovieRental.Domain.Enteties.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("GenresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MovieRental.Domain.Enteties.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("MoviesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MovieRental.Domain.Enteties.Rating", b =>
+                {
+                    b.HasOne("MovieRental.Domain.Enteties.Movie", "Movie")
+                        .WithMany("Rating")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("MovieRental.Domain.Enteties.User", b =>
+                {
+                    b.HasOne("MovieRental.Domain.Enteties.Genre", "FovriteGenre")
+                        .WithMany()
+                        .HasForeignKey("FovriteGenreId");
+
+                    b.Navigation("FovriteGenre");
+                });
+
             modelBuilder.Entity("MovieUser", b =>
                 {
                     b.HasOne("MovieRental.Domain.Enteties.Movie", null)
@@ -404,6 +672,11 @@ namespace MovieRental.Storage.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MovieRental.Domain.Enteties.Movie", b =>
+                {
+                    b.Navigation("Rating");
                 });
 #pragma warning restore 612, 618
         }
