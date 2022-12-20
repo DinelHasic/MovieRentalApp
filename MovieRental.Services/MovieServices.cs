@@ -26,18 +26,18 @@ namespace MovieRental.Services
         public async Task AddNewMovieAsync(MovieCreateDto newMovie)
         {
 
-            ICollection<Director> directors = _directorRepository.GetDirectorByIds(newMovie.Directors!).ToArray();
+            IReadOnlyCollection<Director> directors = await _directorRepository.GetDirectorByIdsAsync(newMovie.Directors!);
 
-            ICollection<Genre> genres = _genreRepository.GetGenresByIds(newMovie.Genres!).ToArray();
+            IReadOnlyCollection<Genre> genres = await _genreRepository.GetGenresByIdsAsync(newMovie.Genres!);
 
             Movie movie = new()
             {
                 Title = newMovie.Title,
                 Description = newMovie.Description,
-                Genres = genres,
+                Genres = genres.ToArray(),
                 ImageUrl = newMovie.ImageUrl,
                 Year = newMovie.Year,
-                Directors = directors
+                Directors = directors.ToArray(),
             };
 
             _movieRepository.AddMovie(movie);

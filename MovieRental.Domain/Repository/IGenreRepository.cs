@@ -4,6 +4,7 @@ namespace MovieRental.Domain.Repository
 {
     public interface IGenreRepository
     {
-        IReadOnlyCollection<Genre> GetGenresByIds(List<int> ids);
+        Task<IReadOnlyCollection<Genre>> ReturnAllGenresAsync();
+        Task<IReadOnlyCollection<Genre>> GetGenresByIdsAsync(List<int> ids);
     }
 }

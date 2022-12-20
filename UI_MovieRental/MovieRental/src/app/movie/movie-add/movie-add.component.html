@@ -37,25 +37,34 @@
     </div>
     <div class="form-group">
       <select
-        name="genre"
+        name="genres"
         class="form-control"
         ngModel
         required
-        #genre="ngModel"
+        #genres="ngModel"
+        multiple
       >
         <option value="" disabled selected>Genre</option>
-        <option value="0">Drama</option>
-        <option value="1">Comedy</option>
-        <option value="2">Action</option>
-        <option value="3">Fantasy</option>
-        <option value="4">Horror</option>
-        <option value="5">Romance</option>
-        <option value="6">Western</option>
-        <option value="7">Thriller</option>
-        <option value="8">Animation</option>
+        <option *ngFor="let g of genresData"  [value]="g.genreId">{{g.genreTitle}}</option>
       </select>
-      <span class="help-block validation" *ngIf="!genre.valid && genre.touched"
-        >Please select one of the provided genres!</span
+      <span class="help-block validation" *ngIf="!genres.valid && genres.touched"
+        >Please select one or more of the provided genres!</span
+      >
+    </div>
+    <div class="form-group">
+      <select
+        name="directors"
+        class="form-control"
+        ngModel
+        required
+        #directors="ngModel"
+        multiple
+      >
+        <option value="" disabled selected>Director</option>
+        <option *ngFor="let d of directorsData" [value]="d.id">{{d.firstName}} {{d.lastName}}</option>
+      </select>
+      <span class="help-block validation" *ngIf="!directors.valid && directors.touched"
+        >Please select one or more of the provided directors!</span
       >
     </div>
     <div class="form-group">

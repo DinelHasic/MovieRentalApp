@@ -1,4 +1,5 @@
-﻿using MovieRental.Domain.Enteties;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieRental.Domain.Enteties;
 using MovieRental.Domain.Repository;
 using MovieRental.Storage.Database;
 using System;
@@ -16,14 +17,19 @@ namespace MovieRental.Storage.Repositorys
         }
 
 
-        public Director GetDirectorById(int id)
+        public async Task<IReadOnlyCollection<Director>> GetAllDirectorsAsync()
         {
-            return GetAll().FirstOrDefault(d => d.Id == id);
+            return await GetAll().ToArrayAsync();
         }
 
-        public IReadOnlyCollection<Director> GetDirectorByIds(List<int> ids)
+        public async Task<Director> GetDirectorByIdAsync(int id)
         {
-            return GetAll().Where(x => ids.Contains(x.Id)).ToArray();
+            return await GetAll().FirstOrDefaultAsync(d => d.Id == id) ?? throw new NullReferenceException();
+        }
+
+        public async Task<IReadOnlyCollection<Director>> GetDirectorByIdsAsync(List<int> ids)
+        {
+            return  await GetAll().Where(x => ids.Contains(x.Id)).ToArrayAsync();
         }
     }
 }

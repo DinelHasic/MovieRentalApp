@@ -33,7 +33,7 @@ namespace MovieRental.Storage.Repositorys
 
         public async Task<User> GetUserByUsernameAsync(string? userName)
         {
-            return  await GetAll().SingleOrDefaultAsync(x => x.UserName == userName); 
+            return  await GetAll().SingleOrDefaultAsync(x => x.UserName == userName) ?? throw new NullReferenceException(); 
         }
     }
 }

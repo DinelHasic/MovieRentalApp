@@ -4,8 +4,10 @@ namespace MovieRental.Domain.Repository
 {
     public interface IDirectorRepository
     {
-        Director GetDirectorById(int id);
+        Task<IReadOnlyCollection<Director>> GetAllDirectorsAsync();
 
-        IReadOnlyCollection<Director> GetDirectorByIds(List<int> ids);
+        Task<Director> GetDirectorByIdAsync(int id);
+
+        Task<IReadOnlyCollection<Director>> GetDirectorByIdsAsync(List<int> ids);
     }
 }

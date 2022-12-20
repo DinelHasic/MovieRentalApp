@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieRental.Contract.DTOs.Direcor
+namespace MovieRental.Contract.DTOs.Director
 {
-    public class DirectorDto
+    public class DirectorSelectionDto
     {
+        public int Id { get; set; }
+
         public string? FirstName { get; set; }
 
         public string? LastName { get; set; }
-
-        public string? Image_Url { get; set; }
     }
 }

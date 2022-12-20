@@ -18,7 +18,7 @@ namespace MovieRental.Services
 
         private readonly IUnitOfWork _unitOfWork;
 
-        private IOptions<Auth> _options;
+        private readonly IOptions<Auth> _options;
 
         public UserServices(IUserRepository userRepository, IUnitOfWork unitOfWork, IOptions<Auth> options)
         {
@@ -59,11 +59,11 @@ namespace MovieRental.Services
             }
 
 
-            JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityTokenHandler jwtSecurityTokenHandler = new();
 
             byte[] secretKeyBytes = Encoding.ASCII.GetBytes(_options.Value.Key!);
 
-            SecurityTokenDescriptor securityTokenDescriptor = new SecurityTokenDescriptor
+            SecurityTokenDescriptor securityTokenDescriptor = new()
             {
                 Expires = DateTime.UtcNow.AddHours(3), 
 

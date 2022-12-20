@@ -9,7 +9,7 @@ namespace MovieRental.Storage.Database.Seed
 {
     internal static class RatingSeed
     {
-        public static List<Rating> RATINGS = new List<Rating>()
+        public static List<Rating> RATINGS = new()
         {
             new Rating(1,9,1),
             new Rating(2,10,1),

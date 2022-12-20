@@ -17,7 +17,7 @@ namespace MovieRental.Contract.DTOs.Movie
 
         public string? Description { get; set; }
 
-        public IEnumerable<GenreMoviesDto>? Genres { get; set; }
+        public IEnumerable<GenreDto>? Genres { get; set; }
 
         public DateTime Year { get; set; }
 

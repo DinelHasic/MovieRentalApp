@@ -21,6 +21,7 @@ namespace MovieRental.Contract.DTOs.Movie
         [Required]
         public List<int>? Genres { get; set; }
 
+
         [Required]
         public List<int>? Directors { get; set; }
 

@@ -4,6 +4,7 @@ import { Movie } from "../movie/movie.module";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { MovieDetails } from "../movie/movie-view-models/movieDetails.model";
+import { NewMovie } from "../Interfaces/newMovie.interface";
 
 @Injectable({
     providedIn:'root'
@@ -24,7 +25,7 @@ export class MovieServices
       return this._http.get<Array<Movie>>("https://localhost:7025/api/Movie/movie/get/all");
    } 
    
-   addNewMovie(movie:Movie)
+   addNewMovie(movie:NewMovie)
    {
      return this._http.post("https://localhost:7025/api/Movie/movie/create",movie);
    }

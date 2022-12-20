@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MovieRental.Contract.DTOs.Genre
 {
-    public class GenreMoviesDto
+    public class GenreDto
     {
         public int GenreId { get; set; }
 
-        public string GenreTitle { get; set; }
+        public string? GenreTitle { get; set; }
     }
 }

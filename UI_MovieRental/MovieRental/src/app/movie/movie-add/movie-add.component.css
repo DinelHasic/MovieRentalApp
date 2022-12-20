@@ -24,7 +24,8 @@
   h1
   {
     color: orange;
-    margin-left: 3.7em;
+    margin-left: 7em;
+    font-size:2em;
     padding: 0.5em;
   }
 
@@ -35,8 +36,9 @@ textarea
 
 .container 
 {
-  margin: 5em 35em;
+  margin: 5em 30em;
 }
+
 
 button {
    margin-left:14em;

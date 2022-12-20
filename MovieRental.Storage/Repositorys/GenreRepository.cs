@@ -1,4 +1,5 @@
-﻿using MovieRental.Domain.Enteties;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieRental.Domain.Enteties;
 using MovieRental.Domain.Repository;
 using MovieRental.Storage.Database;
 using System;
@@ -15,9 +16,14 @@ namespace MovieRental.Storage.Repositorys
         {
         }
 
-        public IReadOnlyCollection<Genre> GetGenresByIds(List<int> ids)
+        public async Task<IReadOnlyCollection<Genre>> GetGenresByIdsAsync(List<int> ids)
         {
-            return GetAll().Where(x => ids.Contains(x.Id)).ToArray();
+            return await GetAll().Where(x => ids.Contains(x.Id)).ToArrayAsync();
+        }
+
+        public async Task<IReadOnlyCollection<Genre>> ReturnAllGenresAsync()
+        {
+            return await GetAll().ToArrayAsync();
         }
     }
 }

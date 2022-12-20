@@ -4,7 +4,7 @@ namespace MovieRental.Storage.Database.Seed
 {
     internal static class GenreSeed
     {
-        public static List<Genre> GENRES = new List<Genre>()
+        public static List<Genre> GENRES = new()
         {
             new Genre(1,"Drama"),
             new Genre(2,"Comedy"),

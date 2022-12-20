@@ -10,7 +10,7 @@ namespace MovieRental.Domain.Enteties
     {
         public string Title { get; set; }
 
-        public ICollection<Movie> Movies { get; set; }
+        public ICollection<Movie>? Movies { get; set; }
 
         public Genre(int id,string title)
         {

@@ -31,6 +31,8 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 
 builder.Services.AddScoped<IUserServices, UserServices>()
                 .AddScoped<IMovieServices, MovieServices>()
+                .AddScoped<IDirectorServices, DirectorsServices>()
+                .AddScoped<IGenreServices, GenreServices>()
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IMovieRepository, MovieRepository>() 
                 .AddScoped<IDirectorRepository, DirectorRepository>()

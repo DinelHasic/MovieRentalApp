@@ -1,4 +1,5 @@
 ﻿using MovieRental.Contract.DTOs.Direcor;
+using MovieRental.Contract.DTOs.Director;
 using MovieRental.Domain.Enteties;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,16 @@ namespace MovieRental.Services.Mapper
                 FirstName = director.FirstName,
                 LastName = director.LastName,
                 Image_Url = director.Image_Url,
+            };
+        }
+
+        public static DirectorSelectionDto ToDirectorSelectionDto(this Director director)
+        {
+            return new DirectorSelectionDto()
+            {
+                Id = director.Id,
+                FirstName = director.FirstName,
+                LastName = director.LastName
             };
         }
     }
