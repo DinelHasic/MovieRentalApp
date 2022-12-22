@@ -1,0 +1,45 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+.title
+{
+    color: rgb(169, 148, 123);
+    font-weight: 700;
+    font-weight: bold;
+    margin-left: 5.8em;
+}
+
+.button
+{
+    margin-left: 10em;
+    width: 8em;
+    border: 1px solid white;
+    background-color: rgb(107, 101, 62);
+}
+
+.button:hover
+{
+    background-color: antiquewhite;
+    border: 1px solid black;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched
+{
+
+  border: 1px solid red;
+}
+
+.validation{
+  color: brown;
+}
+
+.loadingSpiner
+{
+    width: 10em;
+    margin-top: 12em;
+    margin-left: 20em;
+}

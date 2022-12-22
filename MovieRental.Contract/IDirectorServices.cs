@@ -5,5 +5,6 @@ namespace MovieRental.Contract
     public interface IDirectorServices
     {
         Task<IReadOnlyCollection<DirectorSelectionDto>> GetAllDirectorsAsync();
+        Task AddNewDirector(CreateDirectorDto director);
     }
 }

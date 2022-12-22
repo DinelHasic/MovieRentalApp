@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieRental.Contract;
 using MovieRental.Contract.DTOs.Direcor;
@@ -19,11 +20,21 @@ namespace MovieRental.Controllers
         }
 
         [HttpGet("directors/all")]
+        [Authorize(Roles = "Admin")]
         public async Task<IEnumerable<DirectorSelectionDto>> GetAllDirectors()
         {
             IReadOnlyCollection<DirectorSelectionDto> directors = await _directorServices.GetAllDirectorsAsync();
 
             return directors;
+        }
+
+        [HttpPost("director/create")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateDirector(CreateDirectorDto director)
+        {
+            await _directorServices.AddNewDirector(director);
+
+            return Ok(director);
         }
     }
 }

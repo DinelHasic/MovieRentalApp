@@ -11,10 +11,12 @@ import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './register/register.component';
 import { RoleGuard } from './guards/role.guard';
 import { MovieRemoveComponent } from './movie/movie-remove/movie-remove.component';
+import { DirectorAddComponent } from './director/director-add/director-add.component';
 const routes: Routes = [
   { path: 'movie', component: MovieComponent },
   { path: 'movie/details/:id', component: MovieDetailsComponent,canActivate:[LoginGuard] },
   { path: 'movie/remove/:id', component:MovieRemoveComponent,canActivate:[RoleGuard]},
+  { path: 'director/add', component:DirectorAddComponent,canActivate:[RoleGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register',component:RegisterComponent},
   { path: 'favorite', component: FavoriteListComponent,canActivate:[LoginGuard]},

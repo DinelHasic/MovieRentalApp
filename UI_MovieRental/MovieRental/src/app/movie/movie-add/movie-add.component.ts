@@ -23,6 +23,8 @@ export class MovieAddComponent implements OnInit {
 
   genresData!: Array<Genre>;
 
+  isLoading: boolean = false;
+
   constructor(
     private movieServices: MovieServices,
     private router: Router,
@@ -31,10 +33,10 @@ export class MovieAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.directorServices.GetAllDirectors().subscribe(
       (data) => {
         this.directorsData = data;
-        console.log(this.directorsData);
       },
       () => {
         this.router.navigate(['server-error']);
@@ -53,14 +55,19 @@ export class MovieAddComponent implements OnInit {
   }
 
   addMovie() {
+    this.isLoading = true;
     let newMovie: NewMovie = this.formObject.value;
 
-    console.log(newMovie);
+    this.movieServices.addNewMovie(newMovie).subscribe(
+      (data) => {
+        this.isLoading = false;
+        this.router.navigate(['movie']);
+      },
+      () => {
+        this.isLoading = false;
 
-    this.movieServices.addNewMovie(newMovie).subscribe((data) => {
-      console.log(data);
-    });
-
-    this.router.navigate(['movie']);
+        this.router.navigate(['server-error']);
+      }
+    );
   }
 }

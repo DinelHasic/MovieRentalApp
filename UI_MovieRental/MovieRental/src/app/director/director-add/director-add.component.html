@@ -1,0 +1,87 @@
+<section
+class="h-100 h-custom"
+style="background-image: url(https://wallpapercave.com/wp/wp5999366.jpg)"
+>
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-8 col-xl-6">
+      <div class="loadingSpiner"  *ngIf="isLoading">
+        <app-login-spiner></app-login-spiner>
+      </div>
+      <div class="card rounded-3" *ngIf="!isLoading">
+        <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+        class="w-100"
+        style="
+              border-top-left-radius: 0.3rem;
+              border-top-right-radius: 0.3rem;
+            "
+            alt="Sample photo"
+            />
+            <div class="card-body p-4 p-md-5">
+              <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 title">
+                Create Director
+              </h1>
+            <form class="px-md-2" (ngSubmit)="addDirector()" #f="ngForm">
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  class="form-control"
+                  placeholder="First Name"
+                  ngModel
+                  required
+                  #firstName="ngModel"
+                  pattern = "^[A-Z].*"
+                />
+                <span class="help-block validation" *ngIf="firstName.invalid && firstName.touched">Invalid first name</span>
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="lastName"
+                  class="form-control"
+                  placeholder="Last Name"
+                  ngModel
+                  required
+                  #lastName="ngModel"
+                  pattern = "^[A-Z].*"
+                />
+                <span
+                  class="help-block validation"
+                  *ngIf="lastName.invalid && lastName.touched"
+                  >Invalid last name</span
+                >
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="image_Url"
+                  class="form-control"
+                  placeholder="Image Url"
+                  ngModel
+                  #image="ngModel"
+                  required
+                  pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
+                />
+                <span
+                  class="help-block validation"
+                  *ngIf="image.invalid && image.touched"
+                  >Invalid image url</span
+                  >
+              </div>
+                <br />
+              <button
+                type="submit"
+                class="btn btn-success button"
+                [disabled]="!f.valid"
+              >
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

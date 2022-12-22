@@ -10,9 +10,27 @@ namespace MovieRental.Services
     {
         private readonly IDirectorRepository _directorRepository;
 
-        public DirectorsServices(IDirectorRepository directorRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public DirectorsServices(IDirectorRepository directorRepository,IUnitOfWork unitOfWork)
         {
             _directorRepository = directorRepository;
+
+            _unitOfWork = unitOfWork;   
+        }
+
+        public async Task AddNewDirector(CreateDirectorDto director)
+        {
+            Director directorNew = new()
+            {
+                FirstName = director.FirstName,
+                LastName = director.LastName,
+                Image_Url = director.Image_Url,
+            };
+
+            _directorRepository.AddDirector(directorNew);
+
+            await _unitOfWork.SavaChangesAsync();
         }
 
         public async Task<IReadOnlyCollection<DirectorSelectionDto>> GetAllDirectorsAsync()

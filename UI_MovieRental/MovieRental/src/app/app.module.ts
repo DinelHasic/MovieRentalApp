@@ -22,6 +22,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { LoginSpinerComponent } from './shered/login-spiner/login-spiner.component';
 import { RegisterComponent } from './register/register.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DirectorComponent } from './director/director.component';
+import { DirectorAddComponent } from './director/director-add/director-add.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ServerErrorComponent,
     LoginSpinerComponent,
     RegisterComponent,
+    DirectorComponent,
+    DirectorAddComponent,
   ],
   imports: [
     BrowserModule,

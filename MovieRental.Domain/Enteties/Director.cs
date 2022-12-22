@@ -10,6 +10,10 @@
 
         public List<Movie>? ListMovies { get; set; }
 
+        public Director()
+        {
+
+        }
         public Director(int id ,string? firstName, string? lastName, string? image_Url)
         {
             Id = id;

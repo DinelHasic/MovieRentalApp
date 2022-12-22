@@ -1,106 +1,143 @@
 <!-- Template Form -->
-<div class="container-sm container">
-  <form (ngSubmit)="addMovie()" #f="ngForm">
-    <h1>Add Movie</h1>
-    <div class="form-group">
-      <input
-        class="form-control"
-        type="text"
-        name="title"
-        placeholder="Title"
-        required
-        ngModel
-        #title="ngModel"
-      />
-      <span class="help-block validation" *ngIf="!title.valid && title.touched"
-        >Enter a value for title!</span
-      >
+<section
+  class="h-200 h-custom"
+  style="background-image: url(https://w0.peakpx.com/wallpaper/395/452/HD-wallpaper-movie-posters-horror-movies-posters-scarry-thumbnail.jpg)"
+>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="loadingSpiner" *ngIf="isLoading">
+          <app-login-spiner></app-login-spiner>
+        </div>
+        <div class="card rounded-3" *ngIf="!isLoading">
+          <div class="card-body p-4 p-md-5" style="background-color: rgb(71, 71, 71);">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 title">
+              Create Movie
+            </h1>
+            <form (ngSubmit)="addMovie()" #f="ngForm" *ngIf="!isLoading">
+              <div class="form-outline mb-4">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  required
+                  ngModel
+                  #title="ngModel"
+                />
+                <span
+                  class="help-block validation"
+                  *ngIf="!title.valid && title.touched"
+                  >Enter a value for title!</span
+                >
+              </div>
+              <div class="form-outline mb-4">
+                <textarea
+                  class="form-control"
+                  name="description"
+                  rows="3"
+                  cols="23"
+                  maxlength="170"
+                  minlength="30"
+                  placeholder="Enter description"
+                  required
+                  ngModel
+                  #description="ngModel"
+                ></textarea>
+                <span
+                  class="help-block validation"
+                  *ngIf="!description.valid && description.touched"
+                  >Description has to have minimum length 50!</span
+                >
+              </div>
+              <div class="form-outline mb-4">
+                <select
+                  name="genres"
+                  class="form-control"
+                  ngModel
+                  required
+                  #genres="ngModel"
+                  multiple
+                >
+                  <option value="" disabled selected>Genre</option>
+                  <option *ngFor="let g of genresData" [value]="g.genreId">
+                    {{ g.genreTitle }}
+                  </option>
+                </select>
+                <span
+                  class="help-block validation"
+                  *ngIf="!genres.valid && genres.touched"
+                  >Please select one or more of the provided genres!</span
+                >
+              </div>
+              <div class="form-outline mb-4">
+                <select
+                  name="directors"
+                  class="form-control"
+                  ngModel
+                  required
+                  #directors="ngModel"
+                  multiple
+                >
+                  <option value="" disabled selected>Director</option>
+                  <option *ngFor="let d of directorsData" [value]="d.id">
+                    {{ d.firstName }} {{ d.lastName }}
+                  </option>
+                </select>
+                <span
+                  class="help-block validation"
+                  *ngIf="!directors.valid && directors.touched"
+                  >Please select one or more of the provided directors!</span
+                >
+                <button id="addDirectorBot" [routerLink]="'/director/add'">
+                  New Director
+                </button>
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  class="form-control"
+                  type="date"
+                  name="year"
+                  ngModel
+                  required
+                  #date="ngModel"
+                />
+                <span
+                  class="help-block validation"
+                  *ngIf="!date.valid && date.touched"
+                  >Please select date!</span
+                >
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  class="form-control"
+                  type="url"
+                  name="imageUrl"
+                  placeholder="image_url"
+                  ngModel
+                  required
+                  pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
+                  #imageUrl="ngModel"
+                />
+                <span
+                  class="help-block validation"
+                  *ngIf="!imageUrl.valid && imageUrl.touched"
+                  >Please enter url image!</span
+                >
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="btn btn-warning"
+                  [disabled]="!f.valid"
+                >
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <textarea
-        class="form-control"
-        name="description"
-        rows="3"
-        cols="23"
-        maxlength="170"
-        minlength="30"
-        placeholder="Enter description"
-        required
-        ngModel
-        #description="ngModel"
-      ></textarea>
-      <span
-        class="help-block validation"
-        *ngIf="!description.valid && description.touched"
-        >Description has to have minimum length 50!</span
-      >
-    </div>
-    <div class="form-group">
-      <select
-        name="genres"
-        class="form-control"
-        ngModel
-        required
-        #genres="ngModel"
-        multiple
-      >
-        <option value="" disabled selected>Genre</option>
-        <option *ngFor="let g of genresData"  [value]="g.genreId">{{g.genreTitle}}</option>
-      </select>
-      <span class="help-block validation" *ngIf="!genres.valid && genres.touched"
-        >Please select one or more of the provided genres!</span
-      >
-    </div>
-    <div class="form-group">
-      <select
-        name="directors"
-        class="form-control"
-        ngModel
-        required
-        #directors="ngModel"
-        multiple
-      >
-        <option value="" disabled selected>Director</option>
-        <option *ngFor="let d of directorsData" [value]="d.id">{{d.firstName}} {{d.lastName}}</option>
-      </select>
-      <span class="help-block validation" *ngIf="!directors.valid && directors.touched"
-        >Please select one or more of the provided directors!</span
-      >
-    </div>
-    <div class="form-group">
-      <input
-        class="form-control"
-        type="date"
-        name="year"
-        ngModel
-        required
-        #date="ngModel"
-      />
-      <span class="help-block validation" *ngIf="!date.valid && date.touched"
-        >Please select date!</span
-      >
-    </div>
-    <div class="form-group">
-      <input
-        class="form-control"
-        type="url"
-        name="imageUrl"
-        placeholder="image_url"
-        ngModel
-        required
-        pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
-        #imageUrl="ngModel"
-      />
-      <span
-        class="help-block validation"
-        *ngIf="!imageUrl.valid && imageUrl.touched"
-        >Please enter url image!</span
-      >
-    </div>
-    <div>
-      <button type="submit" class="btn btn-warning" [disabled]="!f.valid">
-        Add
-      </button>
-    </div>
-  </form>
-</div>
+  </div>
+</section>

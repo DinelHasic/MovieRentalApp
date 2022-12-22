@@ -1,42 +1,29 @@
 
 
-  input.ng-invalid.ng-touched,
-  select.ng-invalid.ng-touched,
-  textarea.ng-invalid.ng-touched
-  {
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched
+{
 
-    border: 1px solid red;
-  }
+  border: 1px solid red;
+}
 
   .validation{
     padding: 0.3em;
     color: brown;
   }
 
-  form {
-    width: 48%;
-  }
-
-  form div {
-    margin-bottom: 1em;
-  }
-
-  h1
-  {
-    color: orange;
-    margin-left: 7em;
-    font-size:2em;
-    padding: 0.5em;
-  }
 
 textarea
 {
   resize: none;
 }
 
-.container 
+h1
 {
-  margin: 5em 30em;
+  color: orange;
+  text-align: center;
+  font-weight: bold;
 }
 
 
@@ -46,4 +33,29 @@ button {
    width:7em;
    font-weight: bold;
 
+}
+
+.loadingSpiner
+{
+    width: 10em;
+    margin-top: 12em;
+    margin-left: 20em;
+}
+
+
+
+#addDirectorBot
+{
+  background-color: orange;
+  border: 1px solid black;
+  width: 7em;
+  margin-left: 0em;
+  margin-top: 1em;
+}
+
+#addDirectorBot:hover
+{
+  background-color: rgb(251, 167, 11);
+  color: rgb(153, 153, 153);
+  border: 1px solid white;
 }

@@ -31,5 +31,10 @@ namespace MovieRental.Storage.Repositorys
         {
             return  await GetAll().Where(x => ids.Contains(x.Id)).ToArrayAsync();
         }
+
+        public void AddDirector(Director director)
+        {
+            AddItem(director);
+        }
     }
 }

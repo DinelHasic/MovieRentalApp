@@ -9,5 +9,7 @@ namespace MovieRental.Domain.Repository
         Task<Director> GetDirectorByIdAsync(int id);
 
         Task<IReadOnlyCollection<Director>> GetDirectorByIdsAsync(List<int> ids);
+
+        void AddDirector(Director director);
     }
 }
