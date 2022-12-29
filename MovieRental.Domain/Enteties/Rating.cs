@@ -16,6 +16,10 @@ namespace MovieRental.Domain.Enteties
 
         public int MovieId { get; set; }
 
+        public Rating()
+        {
+
+        }
         public Rating(int id,int ratingNumber,int movieId)
         {
             Id = id;

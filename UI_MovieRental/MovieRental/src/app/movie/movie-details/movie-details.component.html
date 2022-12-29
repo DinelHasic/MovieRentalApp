@@ -1,18 +1,17 @@
-
-<div class="container-details" style="background-image:url({{movie.imageUrl}});">
+<div
+  class="container-details"
+  style="background-image:url({{movie.imageUrl}})"
+>
   <div class="container">
     <div class="poster">
-      <img
-        src="{{movie.imageUrl}}"
-        alt=""
-      />
+      <img src="{{ movie.imageUrl }}" alt="" />
     </div>
     <div class="info">
       <div class="movie-title">{{ movie.title }}</div>
       <div class="movie-detail">
         <div class="set">
           <label>Rating:</label>
-          <span class="ratingColor">{{movie.rating  | number : '1.1-1' }}</span>
+          <span class="ratingColor">{{ movie.rating | number : "1.1-1" }}</span>
         </div>
         <div class="set">
           <label>Release Date</label>
@@ -24,19 +23,53 @@
         </div>
         <div class="set">
           <label>Genre:</label>
-          <span *ngFor="let genre of movie.genres">{{genre.genreTitle + " "}}</span>
+          <span *ngFor="let genre of movie.genres">{{
+            genre.genreTitle + " "
+          }}</span>
         </div>
       </div>
-      <div class="movie-description"> {{movie.description}}</div>
+      <div class="movie-description">{{ movie.description }}</div>
       <div class="movie-cast">
         <div class="header">Director</div>
         <div class="list">
           <div class="cast" *ngFor="let director of movie.directors">
-            <img src={{director.image_Url}}/>
-            <label>{{director.firstName}} {{director.lastName}}</label>
+            <img src="{{ director.image_Url }}" />
+            <label>{{ director.firstName }} {{ director.lastName }}</label>
           </div>
         </div>
+      </div>
+      <div style="margin-top: 5em">
+        <form
+          style="display: flex; gap: 0.5em"
+          (ngSubmit)="submitRating()"
+          #f="ngForm"
+        >
+          <label for="rating"
+            >Rating:
+            <input
+              type="number"
+              name="ratingNumber"
+              id="rating"
+              value="0"
+              min="1"
+              max="10"
+              ngModel
+            />
+          </label>
+          <button
+            type="submit"
+            style="
+              background-color: rgb(228, 228, 228);
+              color: rgb(11, 11, 12);
+              width: 5em;
+              font-weight: bold;
+            "
+          >
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   </div>
 </div>
+

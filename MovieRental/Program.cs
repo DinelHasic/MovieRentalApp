@@ -32,11 +32,13 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 builder.Services.AddScoped<IUserServices, UserServices>()
                 .AddScoped<IMovieServices, MovieServices>()
                 .AddScoped<IDirectorServices, DirectorsServices>()
+                .AddScoped<IRatingServices,RatingServices>()
                 .AddScoped<IGenreServices, GenreServices>()
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IMovieRepository, MovieRepository>() 
                 .AddScoped<IDirectorRepository, DirectorRepository>()
                 .AddScoped<IGenreRepository, GenreRepository>()
+                .AddScoped<IRatingRepository,RatingRepository>()
                 .AddScoped<IUnitOfWork, UnitOfWork>()
                 .AddScoped<IMovieRentalDbContext, MovieRentalDbContext>()
                 .AddSwaggerGen().RegisterDatabase(connectionString);

@@ -14,10 +14,7 @@ export class MovieServices
 {
    
 
-  constructor(private _http:HttpClient)
-  {
-     console.log("It's initialized")
-  }
+  constructor(private _http:HttpClient){}
 
   
    getAllMovies():Observable<Array<Movie>>
