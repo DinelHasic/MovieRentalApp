@@ -12,8 +12,8 @@ using MovieRental.Storage.Database;
 namespace MovieRental.Storage.Migrations
 {
     [DbContext(typeof(MovieRentalDbContext))]
-    [Migration("20221217110212_DirectorMovieData")]
-    partial class DirectorMovieData
+    [Migration("20221230152648_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -482,6 +482,116 @@ namespace MovieRental.Storage.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("Ratings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            MovieId = 1,
+                            RatingNumber = 9
+                        },
+                        new
+                        {
+                            Id = 2,
+                            MovieId = 1,
+                            RatingNumber = 10
+                        },
+                        new
+                        {
+                            Id = 3,
+                            MovieId = 2,
+                            RatingNumber = 8
+                        },
+                        new
+                        {
+                            Id = 4,
+                            MovieId = 2,
+                            RatingNumber = 8
+                        },
+                        new
+                        {
+                            Id = 5,
+                            MovieId = 3,
+                            RatingNumber = 10
+                        },
+                        new
+                        {
+                            Id = 6,
+                            MovieId = 3,
+                            RatingNumber = 9
+                        },
+                        new
+                        {
+                            Id = 7,
+                            MovieId = 4,
+                            RatingNumber = 8
+                        },
+                        new
+                        {
+                            Id = 8,
+                            MovieId = 5,
+                            RatingNumber = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            MovieId = 6,
+                            RatingNumber = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            MovieId = 7,
+                            RatingNumber = 6
+                        },
+                        new
+                        {
+                            Id = 11,
+                            MovieId = 7,
+                            RatingNumber = 9
+                        },
+                        new
+                        {
+                            Id = 12,
+                            MovieId = 8,
+                            RatingNumber = 8
+                        },
+                        new
+                        {
+                            Id = 13,
+                            MovieId = 8,
+                            RatingNumber = 7
+                        },
+                        new
+                        {
+                            Id = 14,
+                            MovieId = 8,
+                            RatingNumber = 5
+                        },
+                        new
+                        {
+                            Id = 15,
+                            MovieId = 9,
+                            RatingNumber = 10
+                        },
+                        new
+                        {
+                            Id = 16,
+                            MovieId = 9,
+                            RatingNumber = 5
+                        },
+                        new
+                        {
+                            Id = 17,
+                            MovieId = 10,
+                            RatingNumber = 8
+                        },
+                        new
+                        {
+                            Id = 18,
+                            MovieId = 10,
+                            RatingNumber = 9
+                        });
                 });
 
             modelBuilder.Entity("MovieRental.Domain.Enteties.User", b =>
@@ -525,7 +635,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 1,
                             FirstName = "DinkoTest",
                             LastName = "Dinko123",
-                            Password = "Lord",
+                            Password = "??hO?S3??z|+?n",
                             RentedMoviesId = 0,
                             RoleType = 1,
                             UserName = "Dinko"
@@ -535,7 +645,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 2,
                             FirstName = "VanjaTest",
                             LastName = "Vanja123",
-                            Password = "Vanja1",
+                            Password = "u??ZsE?????D?",
                             RentedMoviesId = 0,
                             RoleType = 0,
                             UserName = "Vanja"
@@ -545,7 +655,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 3,
                             FirstName = "CvetanTest",
                             LastName = "Cvetan123",
-                            Password = "Cvetan",
+                            Password = "????`??E#B????y",
                             RentedMoviesId = 0,
                             RoleType = 0,
                             UserName = "Cvetan"
@@ -555,7 +665,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 4,
                             FirstName = "MikiTest",
                             LastName = "Miki123",
-                            Password = "Miki",
+                            Password = "??}5?[??XS{???=",
                             RentedMoviesId = 0,
                             RoleType = 0,
                             UserName = "Miki"

@@ -633,7 +633,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 1,
                             FirstName = "DinkoTest",
                             LastName = "Dinko123",
-                            Password = "Lord",
+                            Password = "??hO?S3??z|+?n",
                             RentedMoviesId = 0,
                             RoleType = 1,
                             UserName = "Dinko"
@@ -643,7 +643,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 2,
                             FirstName = "VanjaTest",
                             LastName = "Vanja123",
-                            Password = "Vanja1",
+                            Password = "u??ZsE?????D?",
                             RentedMoviesId = 0,
                             RoleType = 0,
                             UserName = "Vanja"
@@ -653,7 +653,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 3,
                             FirstName = "CvetanTest",
                             LastName = "Cvetan123",
-                            Password = "Cvetan",
+                            Password = "????`??E#B????y",
                             RentedMoviesId = 0,
                             RoleType = 0,
                             UserName = "Cvetan"
@@ -663,7 +663,7 @@ namespace MovieRental.Storage.Migrations
                             Id = 4,
                             FirstName = "MikiTest",
                             LastName = "Miki123",
-                            Password = "Miki",
+                            Password = "??}5?[??XS{???=",
                             RentedMoviesId = 0,
                             RoleType = 0,
                             UserName = "Miki"

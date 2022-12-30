@@ -9,6 +9,7 @@ using MovieRental.Shered;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using XSystem.Security.Cryptography;
 
 namespace MovieRental.Services
 {
@@ -36,10 +37,19 @@ namespace MovieRental.Services
 
         public async Task RegisterUserAsync(CreateUserDto Newuser)
         {
+
+            MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
+            
+            byte[] passwordBytes = Encoding.ASCII.GetBytes(Newuser.Password);
+            
+            byte[] passwordHash = mD5CryptoServiceProvider.ComputeHash(passwordBytes);
+            
+            string hashedPasword = Encoding.ASCII.GetString(passwordHash);
+
             User user = new();
 
             user.UserName = Newuser.UserName;
-            user.Password = Newuser.Password;
+            user.Password = hashedPasword;
             user.FirstName = Newuser.FirstName;
             user.LastName = Newuser.LastName;
 
@@ -52,8 +62,18 @@ namespace MovieRental.Services
         {
             User getUser = await _userRepository.GetUserByUsernameAsync(user.UserName);
 
+            MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
 
-            if(getUser is null || getUser.Password != user.Password)
+            byte[] passwordBytes = Encoding.ASCII.GetBytes((user.Password));
+
+
+            byte[] hashedBytes = mD5CryptoServiceProvider.ComputeHash(passwordBytes);
+
+            string hashedPassword = Encoding.ASCII.GetString(hashedBytes);
+
+
+
+            if (getUser is null || getUser.Password != hashedPassword)
             {
                 throw new Exception("Invalid password or username");
             }

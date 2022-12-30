@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MovieRental.Storage.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -176,8 +176,14 @@ namespace MovieRental.Storage.Migrations
                 {
                     { 1, "Steven", "https://upload.wikimedia.org/wikipedia/commons/6/67/Steven_Spielberg_by_Gage_Skidmore.jpg", "Spielberg" },
                     { 2, "Chris", "https://flxt.tmsimg.com/assets/86548_v9_bb.jpg", "Columbus" },
-                    { 3, "Joe", "https://static.wikia.nocookie.net/starwars/images/b/b2/JoeJohnston.jpg/revision/latest?cb=20140513071825", "Johnston" },
-                    { 4, "Andrew", "https://static.wikia.nocookie.net/disney/images/2/2d/Andrew_Adamsom.jpeg/revision/latest?cb=20200703130829", "Adamson" }
+                    { 3, "Joe", "https://m.media-amazon.com/images/M/MV5BNzcxNDQwNzgxNV5BMl5BanBnXkFtZTYwNTQ1MTA0._V1_.jpg", "Johnston" },
+                    { 4, "Andrew", "https://flxt.tmsimg.com/assets/238057_v9_ba.jpg", "Adamson" },
+                    { 5, "Wolfgang", "https://images.mubicdn.net/images/cast_member/28582/cache-6755-1656674147/image-w856.jpg?size=800x", "Reitherman" },
+                    { 6, "Rob ", "https://flxt.tmsimg.com/assets/161246_v9_bb.jpg", "Minkoff" },
+                    { 7, "Roger", "https://flxt.tmsimg.com/assets/161245_v9_ba.jpg", "Allers" },
+                    { 8, "Raja", "https://resizing.flixster.com/NF1S1bg13STVPI39JymDzl8it8Q=/218x280/v2/https://flxt.tmsimg.com/assets/78732_v9_bb.jpg", "Gosnell" },
+                    { 9, "Peter ", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRQHnA-V4DqU8xDTpwsADvNWat9IbAgrkKifsp-NUyoHSy5AGw6", "Jackson" },
+                    { 10, "Peter ", "https://www.etonline.com/sites/default/files/styles/max_1280x720/public/images/2019-01/peter_farrelly_gettyimages-1079456294_1280.jpg?h=c673cd1c&itok=zBxwVhm8", "Farrelly" }
                 });
 
             migrationBuilder.InsertData(
@@ -218,10 +224,10 @@ namespace MovieRental.Storage.Migrations
                 columns: new[] { "Id", "FirstName", "FovriteGenreId", "LastName", "Password", "RentedMoviesId", "RoleType", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "DinkoTest", null, "Dinko123", "Lord", 0, 1, "Dinko" },
-                    { 2, "VanjaTest", null, "Vanja123", "Vanja1", 0, 0, "Vanja" },
-                    { 3, "CvetanTest", null, "Cvetan123", "Cvetan", 0, 0, "Cvetan" },
-                    { 4, "MikiTest", null, "Miki123", "Miki", 0, 0, "Miki" }
+                    { 1, "DinkoTest", null, "Dinko123", "??hO?S3??z|+?n", 0, 1, "Dinko" },
+                    { 2, "VanjaTest", null, "Vanja123", "u??ZsE?????D?", 0, 0, "Vanja" },
+                    { 3, "CvetanTest", null, "Cvetan123", "????`??E#B????y", 0, 0, "Cvetan" },
+                    { 4, "MikiTest", null, "Miki123", "??}5?[??XS{???=", 0, 0, "Miki" }
                 });
 
             migrationBuilder.InsertData(
@@ -231,8 +237,15 @@ namespace MovieRental.Storage.Migrations
                 {
                     { 1, 1 },
                     { 2, 2 },
+                    { 2, 10 },
                     { 3, 3 },
-                    { 4, 4 }
+                    { 4, 4 },
+                    { 5, 5 },
+                    { 6, 6 },
+                    { 7, 6 },
+                    { 8, 7 },
+                    { 9, 8 },
+                    { 10, 9 }
                 });
 
             migrationBuilder.InsertData(
@@ -270,6 +283,38 @@ namespace MovieRental.Storage.Migrations
                     { 2, 2 },
                     { 3, 2 },
                     { 4, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "Id", "MovieId", "RatingNumber" },
+                values: new object[,]
+                {
+                    { 1, 1, 9 },
+                    { 2, 1, 10 },
+                    { 3, 2, 8 },
+                    { 4, 2, 8 },
+                    { 5, 3, 10 },
+                    { 6, 3, 9 },
+                    { 7, 4, 8 },
+                    { 8, 5, 8 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "Id", "MovieId", "RatingNumber" },
+                values: new object[,]
+                {
+                    { 9, 6, 9 },
+                    { 10, 7, 6 },
+                    { 11, 7, 9 },
+                    { 12, 8, 8 },
+                    { 13, 8, 7 },
+                    { 14, 8, 5 },
+                    { 15, 9, 10 },
+                    { 16, 9, 5 },
+                    { 17, 10, 8 },
+                    { 18, 10, 9 }
                 });
 
             migrationBuilder.CreateIndex(
