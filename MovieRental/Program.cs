@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using MovieRental.Contract;
 using MovieRental.Domain.Repository;
 using MovieRental.Extension;
+using MovieRental.Options;
 using MovieRental.Services;
 using MovieRental.Shered;
 using MovieRental.Storage.Database;
@@ -23,6 +24,8 @@ builder.Services.AddSwaggerGen();
 
 string connectionString = builder.Configuration.GetConnectionString("Database");
 
+DatabaseOptions databaseOptions = builder.Configuration.GetSection("DatabaseOptions").Get<DatabaseOptions>();
+
 string[] allowedOrigins = builder.Configuration.GetSection("AllowOrigin").Get<string[]>();
 
 builder.Services.AddControllers().AddJsonOptions(x =>
@@ -41,7 +44,7 @@ builder.Services.AddScoped<IUserServices, UserServices>()
                 .AddScoped<IRatingRepository,RatingRepository>()
                 .AddScoped<IUnitOfWork, UnitOfWork>()
                 .AddScoped<IMovieRentalDbContext, MovieRentalDbContext>()
-                .AddSwaggerGen().RegisterDatabase(connectionString);
+                .AddSwaggerGen().RegisterDatabase(connectionString,databaseOptions);
 
 
 
