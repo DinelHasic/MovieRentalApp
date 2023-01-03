@@ -54,7 +54,7 @@ namespace MovieRental.Services
 
         public async Task<MovieDetailsDto> GetMovieByIdAsync(int id)
         {
-            Movie movie = await _movieRepository.GetMovieByIdAsync(id);
+            Movie movie = await _movieRepository.GetMovieByIdAsync(id) ?? throw new ArgumentException("Movie not found");
 
             return movie.ToMovieDetailsDto();
         }

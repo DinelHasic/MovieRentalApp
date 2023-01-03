@@ -19,18 +19,24 @@ namespace MovieRental.Controllers
 
         [HttpGet("movie/get/all")]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<MovieDto>>> GetAllMovie()
+        public async Task<ActionResult<IEnumerable<MovieDto>>> GetAllMovieAsync()
         {
            IEnumerable<MovieDto> movies = await _movieServices.GetAllMoviesAsync();
 
-            return Ok(movies);
+           
+           return Ok(movies);
         }
 
 
         [HttpPost("movie/create")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CreateMovie(MovieCreateDto newMovie)
+        public async Task<IActionResult> CreateMovieAsync(MovieCreateDto newMovie)
         {
+            if(newMovie is null)
+            {
+                return BadRequest();
+            }
+
             await _movieServices.AddNewMovieAsync(newMovie);
 
             return Ok(newMovie);
@@ -38,7 +44,7 @@ namespace MovieRental.Controllers
 
         [HttpDelete("movie/delete")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteMovie(int id)
+        public async Task<IActionResult> DeleteMovieAsync(int id)
         {
             await _movieServices.RemoveMovieByIdAsync(id);
             
@@ -47,11 +53,18 @@ namespace MovieRental.Controllers
 
         [HttpGet("movie/details/{id}")]
         [Authorize]
-        public async Task<ActionResult<MovieDetailsDto>> MovieDetails([FromRoute] int id)
+        public async Task<ActionResult<MovieDetailsDto>> GetMovieDetailAsync([FromRoute] int id)
         {
-            MovieDetailsDto movie = await _movieServices.GetMovieByIdAsync(id);
+            try
+            {
+              MovieDetailsDto movie = await _movieServices.GetMovieByIdAsync(id);
 
-            return Ok(movie);
+              return Ok(movie);
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
     }

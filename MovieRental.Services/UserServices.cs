@@ -38,9 +38,9 @@ namespace MovieRental.Services
         public async Task RegisterUserAsync(CreateUserDto Newuser)
         {
 
-            MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
+            MD5CryptoServiceProvider mD5CryptoServiceProvider = new();
             
-            byte[] passwordBytes = Encoding.ASCII.GetBytes(Newuser.Password);
+            byte[] passwordBytes = Encoding.ASCII.GetBytes(Newuser.Password!);
             
             byte[] passwordHash = mD5CryptoServiceProvider.ComputeHash(passwordBytes);
             
@@ -62,9 +62,9 @@ namespace MovieRental.Services
         {
             User getUser = await _userRepository.GetUserByUsernameAsync(user.UserName);
 
-            MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
+            MD5CryptoServiceProvider mD5CryptoServiceProvider = new();
 
-            byte[] passwordBytes = Encoding.ASCII.GetBytes((user.Password));
+            byte[] passwordBytes = Encoding.ASCII.GetBytes((user.Password!));
 
 
             byte[] hashedBytes = mD5CryptoServiceProvider.ComputeHash(passwordBytes);

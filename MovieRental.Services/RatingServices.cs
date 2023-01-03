@@ -29,7 +29,7 @@ namespace MovieRental.Services
         {
            Movie movie =  await _movieRepository.GetMovieByIdAsync(rating.MovieId) ?? throw new Exception("Movie not found");
 
-           Rating newRating = new Rating()
+           Rating newRating = new()
            {
                 RatingNumber = rating.RatingNumber,
                 Movie = movie

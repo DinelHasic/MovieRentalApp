@@ -11,7 +11,7 @@ namespace MovieRental.Storage.Helper
     {
         public static string GetHashedPassword(string password)
         {
-            MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
+            MD5CryptoServiceProvider mD5CryptoServiceProvider = new();
 
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
 
