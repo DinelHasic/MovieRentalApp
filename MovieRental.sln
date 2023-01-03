@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieRental.Contract", "Mov
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieRental.Shered", "MovieRental.Shered\MovieRental.Shered.csproj", "{27CF9217-91F7-49B1-9C7C-5DE291066576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental.UnitTesting", "MovieRenatl.UnitTesting\MovieRental.UnitTesting.csproj", "{3F1C8C8B-FC38-4FF2-B6C3-18D2E0FC8574}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental.UnitTesting", "MovieRental.UnitTesting\MovieRental.UnitTesting.csproj", "{E1E3FE17-68BD-4848-934F-4AE96C8F5478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{27CF9217-91F7-49B1-9C7C-5DE291066576}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27CF9217-91F7-49B1-9C7C-5DE291066576}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27CF9217-91F7-49B1-9C7C-5DE291066576}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F1C8C8B-FC38-4FF2-B6C3-18D2E0FC8574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F1C8C8B-FC38-4FF2-B6C3-18D2E0FC8574}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F1C8C8B-FC38-4FF2-B6C3-18D2E0FC8574}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F1C8C8B-FC38-4FF2-B6C3-18D2E0FC8574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1E3FE17-68BD-4848-934F-4AE96C8F5478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E3FE17-68BD-4848-934F-4AE96C8F5478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E3FE17-68BD-4848-934F-4AE96C8F5478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E3FE17-68BD-4848-934F-4AE96C8F5478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

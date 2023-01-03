@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MovieRental.Contract\MovieRental.Contract.csproj" />
-    <ProjectReference Include="..\MovieRental.Services\MovieRental.Services.csproj" />
     <ProjectReference Include="..\MovieRental\MovieRental.csproj" />
   </ItemGroup>
 
