@@ -23,10 +23,13 @@ namespace MovieRental.Controllers
         {
            IEnumerable<MovieDto> movies = await _movieServices.GetAllMoviesAsync();
 
+           if(movies == null)
+           {
+                return NotFound();
+           }
            
            return Ok(movies);
         }
-
 
         [HttpPost("movie/create")]
         [Authorize(Roles = "Admin")]
@@ -37,9 +40,16 @@ namespace MovieRental.Controllers
                 return BadRequest();
             }
 
-            await _movieServices.AddNewMovieAsync(newMovie);
+            try
+            {
+              await _movieServices.AddNewMovieAsync(newMovie);
 
-            return Ok(newMovie);
+              return Ok(newMovie);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("movie/delete")]

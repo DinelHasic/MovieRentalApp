@@ -26,19 +26,34 @@ namespace MovieRental.Services
         public async Task AddNewMovieAsync(MovieCreateDto newMovie)
         {
 
-            IReadOnlyCollection<Director> directors = await _directorRepository.GetDirectorByIdsAsync(newMovie.Directors!);
+           if (newMovie.Directors is null || newMovie.Genres is null)
+           {
+                 throw new NullReferenceException("Invalid inputs");
+           }
 
-            IReadOnlyCollection<Genre> genres = await _genreRepository.GetGenresByIdsAsync(newMovie.Genres!);
+           IReadOnlyCollection<Director> directors = await _directorRepository.GetDirectorByIdsAsync(newMovie.Directors);
 
-            Movie movie = new()
-            {
-                Title = newMovie.Title,
-                Description = newMovie.Description,
-                Genres = genres.ToArray(),
-                ImageUrl = newMovie.ImageUrl,
-                Year = newMovie.Year,
-                Directors = directors.ToArray(),
-            };
+           if (directors.Count() == 0)
+           {
+               throw new InvalidOperationException("Directors not found");
+           }
+
+           IReadOnlyCollection<Genre> genres = await _genreRepository.GetGenresByIdsAsync(newMovie.Genres);
+
+           if (genres.Count() == 0)
+           {
+               throw new InvalidOperationException("Genre not found");
+           }
+
+           Movie movie = new()
+           {
+             Title = newMovie.Title,
+             Description = newMovie.Description,
+             Genres = genres.ToArray(),
+             ImageUrl = newMovie.ImageUrl,
+             Year = newMovie.Year,
+             Directors = directors.ToArray(),
+           };
 
             _movieRepository.AddMovie(movie);
 
